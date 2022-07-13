@@ -1,0 +1,33 @@
+openapi: 3.0.0
+info:
+  description: service backend
+  version: 1.0.0
+  title: my-api
+paths:
+  /items:
+    get:
+      summary: Get all items
+      description: Get all items
+      operationId: getItems
+      responses:
+        "200":
+          description: success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/item'
+servers:
+  - url: /api/v1
+components:
+  schemas:
+    item:
+      type: object
+      properties:
+        id:
+          type: number
+        name:
+          type: string
+        date:
+          type: string
